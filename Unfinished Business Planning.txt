@@ -1,0 +1,36 @@
+Theme: Keep It Alive
+
+Idea: Unfinished business
+	You are a spirit from hell that escaped hell to finish some business on earth
+	Your goal is to pass limbo and go back to earth
+	Demons try to bring you back to hell
+	Angels try to destroy your very being
+	
+	Platformer fighter
+		Shackled with a ball and chain your spirit cant move freely
+		Use telekinesis to move around/jump/dash/fight
+			Pick up anything to throw it or move it around
+			Especially your ball and chain
+		You can move around as far as the ball allows
+		
+		Fighting
+			You can use a lantern you stole from hell to summon some ghosts to hurt enemies
+			They charge at an enemy and explode and the fragments return to your lantern
+			
+		Progression
+			Skills unlock as you level up / progress in the game
+			
+			"Do as I say!": Passive
+				Can be upgraded more than once
+				Increases damage of the ghosts every level
+				Increases travel speed of the ghosts every level
+				At max level, they home in on the closest enemy
+			
+			"What a Drag": Passive
+				Use a ghost to push your ball to wherever you wanna go freeing up horizontal movement
+				
+			"Charge!": Ability Active
+				Hold ability key 1 to charge up some ghosts that will attack all at once for a damage boost and aoe
+				
+			"Protect!": Ability Active
+				Press ability key 2 to create a shield of small ghosts

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/chain_segments.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.5
+
+[node name="Loop" type="RigidBody2D"]
+position = Vector2( 12.7175, 0.0290356 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

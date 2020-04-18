@@ -1,0 +1,58 @@
+Theme: Keep It Alive
+In Depth Short List
+
+Hands on Tower Defense protecting the heart
+	Inside of human body
+		You are white blood cell warriors
+		With the help of some contraptions you build, save the heart against disease
+		Top Down Shooter Tower Defense
+
+Stockholm Syndrome - Prison break
+	Break your old kidnapper and slavedriver out of prison
+	Top Down Hotline Miami ish style
+	
+	Might be out of scope
+
+1984
+	Save the System
+		Indoctrinate people into believing that the system is good
+		Kill/Mind Control the people that dont believe
+		
+		Decision Based Game
+		
+	Destroy the system
+		As a hacker
+			Gain control of the system bit by bit and destroy it from within without being noticed
+			
+			Out of scope probably
+			
+		As a fighter
+			Side Scrolling Shoot em up, old metal gear or whatever that web game was called
+			
+Immortality
+	If you die you "reform"
+
+	Seek immortality
+		Find the fountain of immortality
+		
+		Beg being cursed
+	
+	Keep your body in shape
+		Feed on other humans/animals
+		Race against time
+		
+	Get rid of it, to keep live having value
+		Try to die as much as possible
+		
+		Undo the curse brought upon you
+		
+Unfinished business (Spirit) - New Idea
+	You are someone who died but is now still haunting the earth because of some unfinished business
+		Possess people to complete your goal
+		Goals are randomised
+	
+	Find your body and return to your life while trying to keep your spirit from going to heaven or hell
+		Angels try to bring you to heaven
+		Demons try to bring you to hell
+		
+		Platformer fighter
