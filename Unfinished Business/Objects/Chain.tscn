@@ -17,4 +17,5 @@ collision_mask = 2
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Anchor/CollisionShape2D"]
+visible = false
 texture = ExtResource( 1 )

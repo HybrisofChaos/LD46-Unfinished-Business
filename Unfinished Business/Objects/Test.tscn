@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/Chain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/ball.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.68794
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Chain" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8.53841, -0.0187168 )
-loops = 15
+position = Vector2( 9.99631, 17.8001 )
+loops = 5
+player = NodePath(".")
+target = NodePath("../RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 109.084, 14.1678 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
