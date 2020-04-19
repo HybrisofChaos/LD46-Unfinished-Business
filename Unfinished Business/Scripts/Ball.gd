@@ -26,8 +26,8 @@ func _physics_process(_delta):
 	update() 
 	
 func _input(event):
-	shootFromEvent = event
 	if event is InputEventMouseButton:
+		shootFromEvent = event
 		if(dragging):
 			dragging = false
 			if(readyToShoot && !shootTimeout):
@@ -37,6 +37,7 @@ func _input(event):
 			shootToEvent = event
 			dragging = true	
 	elif event is InputEventMouseMotion:
+		shootFromEvent = event
 		if(dragging):
 			readyToShoot = true	
 
