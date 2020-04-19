@@ -7,6 +7,7 @@
 extents = Vector2( 3.95322, 4.12067 )
 
 [node name="Crate" type="RigidBody2D"]
+input_pickable = true
 collision_layer = 131172
 collision_mask = 131172
 mass = 51.0204
