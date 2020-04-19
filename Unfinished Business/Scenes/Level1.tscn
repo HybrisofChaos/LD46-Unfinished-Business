@@ -224,5 +224,9 @@ target = NodePath("../Ball")
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
+movementCooldown = 0.3
+camera = NodePath("../Player/Camera2D")
 
 [editable path="Player"]
+
+[editable path="Ball"]

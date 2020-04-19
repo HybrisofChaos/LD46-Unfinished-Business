@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 export (float) var movementCooldown = 1.5
+export (NodePath) var camera
 
 var dragging = false
 var readyToShoot = false
@@ -11,7 +12,10 @@ var shootTimeout = false
 var cooldownTimer = movementCooldown
 
 func _ready():
-	pass
+	if get_node(camera) is Camera2D:
+		camera = get_node(camera)
+	else:
+		print("Camera should be Camera2D node")	
 
 func _process(delta):
 	update() 
@@ -54,6 +58,6 @@ func _draw():
 		var ball = position - global_position
 		var cursor = shootFromEvent.position - shootToEvent.position - ball
 
-		draw_circle(shootToEvent.position - global_position, 1.0, Color(1,1,1))
+		draw_circle(shootToEvent.position + camera.global_position, 1.0, Color(1,1,1))
 
 		draw_line(ball, ball - cursor, Color(1, 1, 1), 1)		
