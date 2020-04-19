@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 export (float) var movementCooldown = 1.5
+export (int) var maxSpeed = 80
 export (NodePath) var camera
 
 var dragging = false
@@ -9,7 +10,7 @@ var shootToPos: Vector2
 var shootFromPos: Vector2
 var shootTimeout = false
 
-var cooldownTimer = movementCooldown
+var cooldownTimer = 0
 
 func _ready():
 	if get_node(camera) is Camera2D:
@@ -20,6 +21,8 @@ func _ready():
 func _process(delta):
 	update() 
 	updateCooldownTimer(delta)
+	checkForInput()
+	checkAndLimitMaxSpeed()
 
 func updateCooldownTimer(delta):	
 	if shootTimeout:
@@ -28,26 +31,42 @@ func updateCooldownTimer(delta):
 			shootTimeout = false
 			cooldownTimer = movementCooldown
 
+func checkAndLimitMaxSpeed():
+	if abs(get_linear_velocity().x) > maxSpeed or abs(get_linear_velocity().y) > maxSpeed:
+		var new_speed = get_linear_velocity().normalized()
+		new_speed *= maxSpeed
+		set_linear_velocity(new_speed)
+
+func checkForInput():
+	if Input.is_action_just_pressed("lmb") || Input.is_action_just_released("lmb"):
+		shootFromPos = get_global_mouse_position()
+		if(dragging):
+			dragging = false
+			if(readyToShoot && !shootTimeout):
+				shoot()
+			readyToShoot = false
+		else:
+			shootToPos = get_global_mouse_position()
+			dragging = true		
+
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT:
-			shootFromPos = get_global_mouse_position()
-			if(dragging):
-				dragging = false
-				if(readyToShoot && !shootTimeout):
-					shoot()
-					readyToShoot = false
-			else:
-				shootToPos = get_global_mouse_position()
-				dragging = true	
-	elif event is InputEventMouseMotion:
+	if event is InputEventMouseMotion:
 		shootFromPos = get_global_mouse_position()
 		if(dragging):
 			readyToShoot = true	
 
 func shoot():
 	var to = Vector2((shootToPos - global_position) - (shootFromPos - global_position))
-	print(to)
+
+	if to.y > 30:
+		to.y = 30
+	if to.y < -30:
+		to.y = -30	
+
+	if to.x > 30:
+		to.x = 30
+	if to.x < -30:
+		to.x = -30		
 
 	apply_central_impulse(Vector2(to.x * 250, to.y * 300))
 

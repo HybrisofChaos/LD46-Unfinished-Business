@@ -8,7 +8,7 @@ var shootToPos: Vector2
 var shootFromPos: Vector2
 var shootTimeout = false
 
-var cooldownTimer = movementCooldown
+var cooldownTimer = 0
 
 func _ready():
 	pass
@@ -16,6 +16,7 @@ func _ready():
 func _process(delta):
 	update() 
 	updateCooldownTimer(delta)
+	checkForInput()
 
 func updateCooldownTimer(delta):	
 	if shootTimeout:
@@ -24,25 +25,26 @@ func updateCooldownTimer(delta):
 			shootTimeout = false
 			cooldownTimer = movementCooldown
 
+func checkForInput():
+	if Input.is_action_just_pressed("telekenesis"):
+		shootFromPos = get_global_mouse_position()
+		if(dragging):
+			dragging = false
+			if(readyToShoot && !shootTimeout):
+				shoot()
+				readyToShoot = false
+		else:
+			shootToPos = get_global_mouse_position()
+			dragging = true
+
 func _input(event):
-	if Input.is_key_pressed(KEY_Q):
-			shootFromPos = get_global_mouse_position()
-			if(dragging):
-				dragging = false
-				if(readyToShoot && !shootTimeout):
-					shoot()
-					readyToShoot = false
-			else:
-				shootToPos = get_global_mouse_position()
-				dragging = true	
-	elif event is InputEventMouseMotion:
+	if event is InputEventMouseMotion:
 		shootFromPos = get_global_mouse_position()
 		if(dragging):
 			readyToShoot = true	
 
 func shoot():
 	var to = Vector2((shootToPos - global_position) - (shootFromPos - global_position))
-	print(to)
 
 	apply_central_impulse(Vector2(to.x * 100, to.y * 110))
 
