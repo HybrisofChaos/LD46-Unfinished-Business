@@ -4,8 +4,7 @@
 
 [node name="Link" type="PinJoint2D"]
 bias = 0.5
-disable_collision = false
-softness = 1.0
+softness = 2.0
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
