@@ -55,9 +55,8 @@ func shoot():
 
 func _draw():
 	if dragging && !shootTimeout:
-		var ball = position - global_position
-		var cursor = shootFromEvent.position - shootToEvent.position - ball
+		var object = position - global_position
+		var cursor = shootFromEvent.position - shootToEvent.position
 
-		draw_circle(shootToEvent.position + camera.global_position, 1.0, Color(1,1,1))
-
-		draw_line(ball, ball - cursor, Color(1, 1, 1), 1)		
+		draw_circle(shootToEvent.position, 1.0, Color(1,1,1))
+		draw_line(object, object - cursor, Color(1, 1, 1), 1)		

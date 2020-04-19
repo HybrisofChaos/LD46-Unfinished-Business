@@ -1,30 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PlayerAnimation.gd" type="Script" id=3]
-
-[sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.27451, 0, 0.113725, 1, 0.27451, 0, 0.113725, 0 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
-[sub_resource type="ParticlesMaterial" id=3]
-lifetime_randomness = 1.0
-emission_shape = 1
-emission_sphere_radius = 2.0
-flag_disable_z = true
-spread = 0.0
-flatness = 1.0
-gravity = Vector3( 0, 10, 0 )
-initial_velocity = 0.5
-initial_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 1.5
-scale_random = 1.0
-color_ramp = SubResource( 2 )
+[ext_resource path="res://Sprites/portal_0001_Layer-3-copy-3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/portal_0000_Layer-3-copy-2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/portal_0004_Layer-4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/portal_0002_Layer-3-copy.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Portal.gd" type="Script" id=8]
+[ext_resource path="res://Objects/Particles/player_particle_material.material" type="Material" id=9]
 
 [sub_resource type="CircleShape2D" id=4]
 
@@ -32,9 +16,42 @@ color_ramp = SubResource( 2 )
 radius = 3.04473
 height = 3.23604
 
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 0.568627, 0, 0, 0.235294, 0.160784, 0.0156863, 0.0156863, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 0.01
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+orbit_velocity = 5.0
+orbit_velocity_random = 0.1
+radial_accel = 5.0
+radial_accel_random = 0.1
+tangential_accel_random = 0.62
+angle = 5.0
+angle_random = 0.5
+color_ramp = SubResource( 8 )
+
 [node name="Player" type="KinematicBody2D"]
 process_priority = 1
 position = Vector2( 51.3674, 36.557 )
+collision_mask = 786432
 script = ExtResource( 2 )
 ball_path = NodePath("../Ball")
 ball_resting_distance = 16.0
@@ -43,7 +60,7 @@ lerp_scaling_cutoff = 28.0
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -0.523373, 0.209343 )
-process_material = SubResource( 3 )
+process_material = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -74,3 +91,29 @@ limit_bottom = 85
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 4.0
+
+[node name="Portal" type="Node2D" parent="."]
+position = Vector2( 5.29021, -6.04595 )
+script = ExtResource( 8 )
+bounce_speed = 1.0
+bounce_range = 1.0
+attack_speed = 2.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Portal"]
+position = Vector2( 0.137974, -0.0558891 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+frame = 2
+playing = true
+
+[node name="Particles2D" type="Particles2D" parent="Portal/AnimatedSprite"]
+position = Vector2( -0.230888, 2.12143 )
+scale = Vector2( 2, 2 )
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+preprocess = 1.0
+speed_scale = 0.2
+explosiveness = 0.1
+process_material = SubResource( 9 )
