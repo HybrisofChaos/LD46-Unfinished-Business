@@ -5,8 +5,8 @@ export (NodePath) var camera
 
 var dragging = false
 var readyToShoot = false
-var shootToEvent: InputEvent
-var shootFromEvent: InputEvent
+var shootToPos: Vector2
+var shootFromPos: Vector2
 var shootTimeout = false
 
 var cooldownTimer = movementCooldown
@@ -31,22 +31,22 @@ func updateCooldownTimer(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			shootFromEvent = event
+			shootFromPos = get_global_mouse_position()
 			if(dragging):
 				dragging = false
 				if(readyToShoot && !shootTimeout):
 					shoot()
 					readyToShoot = false
 			else:
-				shootToEvent = event
+				shootToPos = get_global_mouse_position()
 				dragging = true	
 	elif event is InputEventMouseMotion:
-		shootFromEvent = event
+		shootFromPos = get_global_mouse_position()
 		if(dragging):
 			readyToShoot = true	
 
 func shoot():
-	var to = Vector2((shootToEvent.position - global_position) - (shootFromEvent.position - global_position))
+	var to = Vector2((shootToPos - global_position) - (shootFromPos - global_position))
 	print(to)
 
 	apply_central_impulse(Vector2(to.x * 250, to.y * 300))
@@ -56,8 +56,9 @@ func shoot():
 func _draw():
 	if dragging && !shootTimeout:
 		var ball = position - global_position
-		var cursor = shootFromEvent.position - shootToEvent.position - ball
+		var cursor = shootFromPos - shootToPos - ball
 
-		draw_circle(shootToEvent.position, 1.0, Color(1,1,1))
+		#FUCKED
+		#draw_circle(shootToPos, 1.0, Color(1,1,1))
 
 		draw_line(ball, ball - cursor, Color(1, 1, 1), 1)		

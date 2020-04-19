@@ -53,6 +53,7 @@ func _draw():
 		var object = position - global_position
 		var cursor = shootFromPos - shootToPos - object
 
-		draw_circle(shootToPos, 1.0, Color(1,1,1))
+		#FUCKED
+		#draw_circle(shootToPos, 1.0, Color(1,1,1))
 
 		draw_line(object, object - cursor, Color(1, 1, 1), 1)		
