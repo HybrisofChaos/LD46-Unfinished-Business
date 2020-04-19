@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/crate.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/MoveableObject.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.95322, 4.12067 )
 
-[node name="Crate" type="Node2D"]
-
-[node name="Node2D" type="RigidBody2D" parent="."]
-collision_layer = 100
-collision_mask = 100
+[node name="Crate" type="RigidBody2D"]
+collision_layer = 131172
+collision_mask = 131172
 mass = 51.0204
+script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Node2D/CollisionShape2D"]
+[node name="Sprite" type="Sprite" parent="CollisionShape2D"]
 texture = ExtResource( 1 )

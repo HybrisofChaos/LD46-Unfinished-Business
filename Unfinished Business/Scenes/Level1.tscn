@@ -229,15 +229,10 @@ movementCooldown = 0.4
 collision_layer = 131072
 collision_mask = 786433
 
-[node name="Platforms" type="TileMap" parent="."]
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 8, 8 )
-cell_quadrant_size = 4
-collision_layer = 524288
-collision_mask = 0
-format = 1
-tile_data = PoolIntArray( 65550, 0, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 2, 0, 196617, 0, 0, 196618, 2, 0, 393220, 0, 0, 393221, 1, 0, 393222, 1, 0, 393223, 2, 0, 458770, 0, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 1, 0, 458780, 2, 0 )
-
-[editable path="Chain"]
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+movementCooldown = 0.3
+camera = NodePath("../Player/Camera2D")
 
 [editable path="Player"]
+
+[editable path="Ball"]
