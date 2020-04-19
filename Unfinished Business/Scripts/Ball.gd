@@ -26,15 +26,16 @@ func updateCooldownTimer(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		shootFromEvent = event
-		if(dragging):
-			dragging = false
-			if(readyToShoot && !shootTimeout):
-				shoot()
-				readyToShoot = false
-		else:
-			shootToEvent = event
-			dragging = true	
+		if event.button_index == BUTTON_LEFT:
+			shootFromEvent = event
+			if(dragging):
+				dragging = false
+				if(readyToShoot && !shootTimeout):
+					shoot()
+					readyToShoot = false
+			else:
+				shootToEvent = event
+				dragging = true	
 	elif event is InputEventMouseMotion:
 		shootFromEvent = event
 		if(dragging):
