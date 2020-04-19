@@ -280,6 +280,10 @@ shape = SubResource( 12 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 1.3, 1.3 )
+limit_left = 0
+limit_top = -100
+limit_right = 320
+limit_bottom = 85
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 3.0
