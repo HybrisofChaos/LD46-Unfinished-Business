@@ -58,6 +58,6 @@ func _draw():
 		var ball = position - global_position
 		var cursor = shootFromEvent.position - shootToEvent.position - ball
 
-		draw_circle(shootToEvent.position + camera.global_position, 1.0, Color(1,1,1))
+		draw_circle(shootToEvent.position, 1.0, Color(1,1,1))
 
 		draw_line(ball, ball - cursor, Color(1, 1, 1), 1)		
