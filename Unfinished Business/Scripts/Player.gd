@@ -6,10 +6,13 @@ export (float) var ball_resting_distance = 20
 export (float) var lerp_weight = 3
 export (float) var lerp_scaling_cutoff = 32.0
 
+const platform_collision_layer = 2^20
+var current_collision_mask
 var ball
 
 func _ready():
 	ball = get_node(ball_path)
+	current_collision_mask = get_collision_mask()
 
 func _physics_process(delta):
 	move(delta)
@@ -18,11 +21,11 @@ func _physics_process(delta):
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(global_position, Vector2(0 , -1), [self, self.get_children()])
 		if result.size() != 0:
-			$Collider.disabled = true
+			set_collision_mask(current_collision_mask - platform_collision_layer)
 		else:
-			$Collider.disabled = false
+			set_collision_mask(current_collision_mask)
 	else:
-		$Collider.disabled = false
+		set_collision_mask(current_collision_mask)
 
 func move(delta):
 	var velocity = Vector2.ZERO
