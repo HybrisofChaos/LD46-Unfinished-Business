@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://font/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/HUD/label_HP_bg.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/mini_ghost.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends MarginContainer
+
+"
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -14,6 +19,7 @@ margin_right = 100.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 100, 40 )
 custom_constants/margin_left = 0
+script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
