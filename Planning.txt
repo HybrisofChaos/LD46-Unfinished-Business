@@ -1,0 +1,17 @@
+TODO	High Priority
+
+	Main Menu
+	Enemy shooting
+	Damage
+	Health
+	Level Design
+	Sound
+	HUD
+--------------------------------------
+TODO	Low Priority
+
+	More Enemies
+	Ammo
+	Abilities
+	Fucking Circle Indicator bug
+	More Objects
