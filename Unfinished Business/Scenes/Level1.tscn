@@ -255,6 +255,9 @@ position = Vector2( 84.6391, 56.8268 )
 collision_layer = 4
 collision_mask = 524288
 
+[node name="CollisionShape2D" parent="Demon" index="0"]
+visible = false
+
 [editable path="Player"]
 
 [editable path="Ball"]
