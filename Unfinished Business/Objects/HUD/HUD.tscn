@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/HUD/LifeBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/HUD/AmmoCounter.tscn" type="PackedScene" id=3]
+
+[node name="HUD" type="MarginContainer"]
+anchor_right = 1.0
+margin_right = 1440.0
+margin_bottom = 93.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1580.0
+margin_bottom = 73.0
+
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 1456.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+
+[node name="LifeBar" parent="HBoxContainer/Bars" instance=ExtResource( 1 )]
+margin_right = 1456.0
+
+[node name="Background" parent="HBoxContainer/Bars/LifeBar/Count" index="0"]
+texture = null
+
+[node name="Counters" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 1460.0
+margin_top = 6.0
+margin_right = 1560.0
+margin_bottom = 46.0
+size_flags_vertical = 4
+
+[node name="AmmoCounter" parent="HBoxContainer/Counters" instance=ExtResource( 3 )]
+
+[editable path="HBoxContainer/Bars/LifeBar"]
