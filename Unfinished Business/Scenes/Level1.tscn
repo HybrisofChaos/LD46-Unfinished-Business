@@ -211,6 +211,7 @@ script = ExtResource( 8 )
 position = Vector2( 98.6184, 73.5961 )
 
 [node name="PathMap" type="TileMap" parent="."]
+visible = false
 position = Vector2( 0, -88 )
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 8, 8 )
@@ -239,9 +240,10 @@ player = NodePath("../Player/ChainPoint")
 target = NodePath("../Ball")
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+collision_mask = 786433
 
 [node name="AnimatedSprite" parent="Player/Portal" index="0"]
-frame = 3
+frame = 2
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 movementCooldown = 0.3
@@ -252,7 +254,7 @@ visible = false
 
 [node name="Demon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84.6391, 56.8268 )
-collision_layer = 4
+collision_layer = 32768
 collision_mask = 524288
 
 [node name="CollisionShape2D" parent="Demon" index="0"]
