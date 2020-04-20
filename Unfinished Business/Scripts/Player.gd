@@ -10,14 +10,13 @@ const platform_collision_layer = 19
 var current_collision_mask
 var ball
 
-signal WHISTLE
-
 func _ready():
 	ball = get_node(ball_path)
 	current_collision_mask = get_collision_mask()
 
 func _physics_process(delta):
 	move(delta)
+
 	if ball.shootTimeout:
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(global_position, Vector2(0 , -1), [self, $Collider, $ChainPoint, ball.get_node("Area2D")], collision_mask)
@@ -48,8 +47,3 @@ func move(delta):
 										)
 
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
-	emit_signal("WHISTLE")
-
-
-
