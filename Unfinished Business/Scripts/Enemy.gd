@@ -10,7 +10,7 @@ func _ready():
 
 func apply_damage(damage):
     current_health -= damage
-    if current_health < 0:
+    if current_health <= 0:
         die()
 
 func die():

@@ -52,7 +52,7 @@ color_ramp = SubResource( 5 )
 process_priority = 1
 position = Vector2( 51.3674, 36.557 )
 collision_layer = 65536
-collision_mask = 819201
+collision_mask = 819217
 script = ExtResource( 2 )
 ball_path = NodePath("../Ball")
 ball_resting_distance = 16.0
@@ -104,6 +104,7 @@ attack_speed = 2.0
 position = Vector2( 0.137974, -0.0558891 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
+frame = 2
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="Portal/AnimatedSprite"]

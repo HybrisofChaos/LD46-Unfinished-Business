@@ -11,4 +11,5 @@ func _physics_process(delta):
 	if collision:
 		if collision.collider.has_method("apply_damage"):
 			collision.collider.apply_damage(damage)
+
 		queue_free()
