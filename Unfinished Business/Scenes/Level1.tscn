@@ -257,9 +257,6 @@ visible = false
 visible = false
 [node name="Demon" parent="." instance=ExtResource( 6 )]
 
-[node name="CollisionShape2D" parent="Demon" index="0"]
-visible = false
-
 [editable path="Player"]
 
 [editable path="Ball"]
