@@ -223,9 +223,18 @@ target = NodePath("../Ball")
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
+[node name="AnimatedSprite" parent="Player/Portal" index="0"]
+frame = 0
+
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 movementCooldown = 0.3
 camera = NodePath("../Player/Camera2D")
+
+[node name="Area2D" parent="Ball" index="2"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="Ball/Area2D" index="0"]
+visible = false
 
 [editable path="Player"]
 
