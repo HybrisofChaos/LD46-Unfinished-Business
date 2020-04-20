@@ -212,6 +212,8 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 position = Vector2( 98.6184, 73.5961 )
 
 [node name="Platform" type="TileMap" parent="."]
+[node name="PathMap" type="TileMap" parent="."]
+visible = false
 position = Vector2( 0, -88 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 8, 8 )
@@ -241,10 +243,7 @@ target = NodePath("../Ball")
 collision_mask = 786433
 
 [node name="AnimatedSprite" parent="Player/Portal" index="0"]
-frame = 1
-
-[node name="AnimatedSprite" parent="Player/Portal" index="0"]
-frame = 0
+frame = 2
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 movementCooldown = 0.3
@@ -253,7 +252,12 @@ camera = NodePath("../Player/Camera2D")
 [node name="Area2D" parent="Ball" index="2"]
 visible = false
 
-[node name="CollisionPolygon2D" parent="Ball/Area2D" index="0"]
+[node name="Demon" parent="." instance=ExtResource( 4 )]
+position = Vector2( 84.6391, 56.8268 )
+collision_layer = 32768
+collision_mask = 524288
+
+[node name="CollisionShape2D" parent="Demon" index="0"]
 visible = false
 [node name="Demon" parent="." instance=ExtResource( 6 )]
 
