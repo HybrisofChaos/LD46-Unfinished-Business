@@ -43,6 +43,8 @@ func shoot():
 		return
 
 	$AnimatedSprite.get_node("Particles2D").restart()
+	$AudioShoot.playing = false
+	$AudioShoot.playing = true
 	
 	var clone = projectile.instance()
 	add_child(clone)

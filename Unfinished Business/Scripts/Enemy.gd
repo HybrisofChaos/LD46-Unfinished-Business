@@ -10,6 +10,8 @@ func _ready():
 
 func apply_damage(damage):
     current_health -= damage
+    $AudioHurt.playing = false
+    $AudioHurt.playing = true
     if current_health <= 0:
         die()
 
