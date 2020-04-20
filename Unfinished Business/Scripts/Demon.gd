@@ -1,4 +1,4 @@
-extends Enemy
+extends KinematicBody2D
 
 export (float) var bounce_speed = 3
 export (float) var bounce_range = 5
@@ -14,8 +14,7 @@ func _ready():
 	start_pos = $AnimatedSprite.position
 
 func _physics_process(delta):
-	bounce(delta)
-
+	bounce(delta) 
 	if target:
 		var velocity = Vector2.ZERO
 		var direction = (target.global_position - global_position).normalized()
@@ -28,7 +27,6 @@ func _on_Area2D_body_entered(node):
 		target = node
 
 func bounce(delta):
-	#$AnimatedSprite.position.y = lerp($AnimatedSprite.position.y, start_pos.y + bounce_range, delta * bounce_speed)
 	$AnimatedSprite.position = $AnimatedSprite.position.move_toward(start_pos + Vector2(0, bounce_range), delta * bounce_speed)
 
 	if abs($AnimatedSprite.position.y  - (start_pos.y + bounce_range)) < 0.7:

@@ -47,4 +47,3 @@ func move(delta):
 										)
 
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
