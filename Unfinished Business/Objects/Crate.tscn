@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/crate.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MoveableObject.gd" type="Script" id=2]
@@ -6,15 +6,78 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.95322, 4.12067 )
 
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 1.0
+trail_divisor = 3
+flag_disable_z = true
+direction = Vector3( 1, 1, 0 )
+spread = 89.57
+gravity = Vector3( 0, 30, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 1.0
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 3 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+linear_accel_random = 1.0
+damping = 1.0
+damping_random = 1.0
+scale = 0.8
+scale_random = 1.0
+color = Color( 0.321569, 0, 0.133333, 1 )
+hue_variation = 1.0
+
 [node name="Crate" type="RigidBody2D"]
 input_pickable = true
 collision_layer = 131172
 collision_mask = 131172
 mass = 51.0204
+can_sleep = false
 script = ExtResource( 2 )
+myBody = NodePath(".")
+myGlow = NodePath("CollisionShape2D/Sprite/ParticleGroup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="CollisionShape2D"]
 texture = ExtResource( 1 )
+
+[node name="ParticleGroup" type="Node2D" parent="CollisionShape2D/Sprite"]
+visible = false
+
+[node name="glow_sprite" type="Sprite" parent="CollisionShape2D/Sprite/ParticleGroup"]
+modulate = Color( 0.321569, 0, 0.133333, 0.164706 )
+show_behind_parent = true
+scale = Vector2( 1.15, 1.15 )
+texture = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="CollisionShape2D/Sprite/ParticleGroup"]
+position = Vector2( 1.61353, -3.78994 )
+amount = 1
+preprocess = 24.66
+randomness = 1.0
+process_material = SubResource( 4 )
+
+[node name="Particles2D2" type="Particles2D" parent="CollisionShape2D/Sprite/ParticleGroup"]
+position = Vector2( -4.3528, -4.01508 )
+amount = 3
+preprocess = 160.0
+randomness = 1.0
+process_material = SubResource( 4 )
+
+[node name="Particles2D3" type="Particles2D" parent="CollisionShape2D/Sprite/ParticleGroup"]
+position = Vector2( 3.75241, 3.67737 )
+amount = 2
+randomness = 1.0
+process_material = SubResource( 4 )
