@@ -264,10 +264,7 @@ visible = false
 position = Vector2( 84.6391, 56.8268 )
 collision_layer = 32768
 collision_mask = 524288
-speed = null
-
-[node name="CollisionShape2D" parent="Demon" index="0"]
-visible = false
+speed = 20.0
 
 [editable path="Player"]
 
