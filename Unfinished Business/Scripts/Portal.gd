@@ -43,9 +43,11 @@ func shoot():
 		return
 
 	$AnimatedSprite.get_node("Particles2D").restart()
+	$AudioShoot.playing = false
+	$AudioShoot.playing = true
 	
 	var clone = projectile.instance()
-	add_child(clone)
+	get_parent().get_parent().add_child(clone)
 	clone.set_global_position(global_position)
 	
 	var mouse_position = get_local_mouse_position()

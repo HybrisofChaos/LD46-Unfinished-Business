@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/demon_projectile_fire_finished.wav-561a4db0ca54b833f310b69af104def9.sample"
+
+[deps]
+
+source_file="res://SFX/demon_projectile_fire_finished.wav"
+dest_files=[ "res://.import/demon_projectile_fire_finished.wav-561a4db0ca54b833f310b69af104def9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

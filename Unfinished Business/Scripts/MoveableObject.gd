@@ -49,7 +49,7 @@ func checkIfMeantForMe():
 	return false	
 
 func _input(event):
-	if event is InputEventMouse && selected:
+	if event is InputEventMouseMotion && selected:
 		global_position += event.relative	
 		
 func apply_damage(damage):
