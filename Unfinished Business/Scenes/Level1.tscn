@@ -231,6 +231,8 @@ script = SubResource( 1 )
 
 [node name="Crate" parent="." instance=ExtResource( 7 )]
 position = Vector2( 98.6184, 73.5961 )
+collision_layer = 131176
+collision_mask = 131185
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -88 )
@@ -249,20 +251,20 @@ player = NodePath("../Player/ChainPoint")
 target = NodePath("../Ball")
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-collision_mask = 786433
+collision_mask = 786432
 
 [node name="AnimatedSprite" parent="Player/Portal" index="0"]
 frame = 2
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
+collision_mask = 524288
 movementCooldown = 0.3
 camera = NodePath("../Player/Camera2D")
 
 [node name="Demon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84.6391, 56.8268 )
-collision_layer = 32768
 collision_mask = 524288
-speed = 20.0
+speed = 15.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

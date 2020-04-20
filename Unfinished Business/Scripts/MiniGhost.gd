@@ -9,6 +9,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 
 	if collision:
+		print(collision.collider.name)
 		if collision.collider.has_method("apply_damage"):
 			collision.collider.apply_damage(damage)
 

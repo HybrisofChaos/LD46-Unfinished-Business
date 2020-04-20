@@ -59,6 +59,4 @@ func apply_damage(damage):
 		die()
 
 func die():
-	#Add Death Scene or some shit
-	#queue_free()
-	pass
+	get_tree().change_scene("res://Scenes/GameOVer.tscn")

@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Scripts/Enemy.gd"
+} ]
 _global_script_class_icons={
-
+"Enemy": ""
 }
 
 [application]
@@ -75,4 +80,5 @@ player_shoot={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.172549, 0, 0.160784, 1 )
 environment/default_environment="res://default_env.tres"
