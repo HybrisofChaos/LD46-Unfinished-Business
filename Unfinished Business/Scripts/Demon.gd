@@ -24,7 +24,7 @@ func _ready():
 	projectile_spawn = $ProjectileSpawnRight
 
 func _physics_process(delta):
-	bounce(delta) 
+	demonBounce(delta) 
 
 	if target:
 		var direction = (target.global_position - global_position).normalized()
@@ -68,7 +68,7 @@ func shoot(direction):
 		clone.rotation = direction.angle()
 		shot = true
 
-func bounce(delta):
+func demonBounce(delta):
 	$AnimatedSprite.position = $AnimatedSprite.position.move_toward(start_pos + Vector2(0, bounce_range), delta * bounce_speed)
 
 	if abs($AnimatedSprite.position.y  - (start_pos.y + bounce_range)) < 0.7:
