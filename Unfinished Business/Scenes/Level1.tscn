@@ -231,8 +231,6 @@ script = SubResource( 1 )
 
 [node name="Crate" parent="." instance=ExtResource( 7 )]
 position = Vector2( 98.6184, 73.5961 )
-collision_layer = 131176
-collision_mask = 131185
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, -88 )
@@ -251,17 +249,20 @@ player = NodePath("../Player/ChainPoint")
 target = NodePath("../Ball")
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-collision_mask = 786432
+collision_mask = 786433
+
+[node name="AnimatedSprite" parent="Player/Portal" index="0"]
+frame = 2
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-collision_mask = 524288
 movementCooldown = 0.3
 camera = NodePath("../Player/Camera2D")
 
 [node name="Demon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84.6391, 56.8268 )
+collision_layer = 32768
 collision_mask = 524288
-speed = 15.0
+speed = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -272,6 +273,8 @@ margin_bottom = 5.00001
 rect_scale = Vector2( 0.08, 0.08 )
 player = NodePath("../../Player")
 healthBar = NodePath("HBoxContainer/Bars/LifeBar/TextureProgress")
+ammoLabel = NodePath("HBoxContainer/Counters/AmmoCounter/Background/Number")
+portal = NodePath("../../Player/Portal")
 
 [node name="HBoxContainer" parent="CanvasLayer/HUD" index="0"]
 margin_right = 1930.0
@@ -286,6 +289,10 @@ margin_right = 1806.0
 margin_left = 1810.0
 margin_right = 1910.0
 
+[editable path="Player"]
+
 [editable path="CanvasLayer/HUD"]
 
 [editable path="CanvasLayer/HUD/HBoxContainer/Bars/LifeBar"]
+
+[editable path="CanvasLayer/HUD/HBoxContainer/Counters/AmmoCounter"]
