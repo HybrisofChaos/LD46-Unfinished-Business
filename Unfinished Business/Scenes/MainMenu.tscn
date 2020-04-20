@@ -139,40 +139,55 @@ position = Vector2( -4.94042, 3.32173 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 160.0
 margin_bottom = 88.0
+custom_constants/margin_top = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 margin_right = 160.0
-margin_bottom = 88.0
+margin_bottom = 478.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 129.0
-margin_bottom = 58.0
-alignment = 1
+margin_left = 24.0
+margin_top = 205.0
+margin_right = 136.0
+margin_bottom = 273.0
+custom_constants/separation = 15
+alignment = 2
 
 [node name="RichTextLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_right = 99.0
+margin_right = 112.0
 margin_bottom = 9.0
 custom_fonts/font = ExtResource( 12 )
 text = "Unfinished Business"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 112.0
+margin_bottom = 68.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer2"]
 material = SubResource( 1 )
-margin_top = 13.0
-margin_right = 99.0
-margin_bottom = 28.0
+margin_right = 112.0
+margin_bottom = 15.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_pivot_offset = Vector2( 40, 8 )
 rect_clip_content = true
 custom_fonts/font = ExtResource( 12 )
 text = "Start Game"
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 35.0
+margin_right = 112.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 12 )
+text = "ALT + F4 To Close Game"
 
 [node name="Player" type="KinematicBody2D" parent="."]
 process_priority = 1
@@ -228,6 +243,7 @@ attack_speed = 2.0
 position = Vector2( 0.137974, -0.0558891 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="Player/Portal/AnimatedSprite"]
@@ -242,4 +258,4 @@ speed_scale = 0.2
 explosiveness = 0.1
 process_material = SubResource( 9 )
 [connection signal="body_entered" from="Demon/Area2D" to="Demon" method="_on_Area2D_body_entered"]
-[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/VBoxContainer2/Button" to="." method="_on_Button_pressed"]
