@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Spritesheets/Tilesheet_default.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Objects/Entities/Demon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Chain.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Crate.tscn" type="PackedScene" id=7]
+
+[sub_resource type="PhysicsMaterial" id=10]
+rough = true
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 8, 5.91535, 0, 5.91535, 0, 2.02103, 8, 2.02103 )
@@ -205,6 +208,9 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
 [node name="Crate" parent="." instance=ExtResource( 7 )]
 position = Vector2( 98.6184, 73.5961 )
+collision_layer = 131176
+collision_mask = 131185
+physics_material_override = SubResource( 10 )
 
 [node name="PathMap" type="TileMap" parent="."]
 visible = false
@@ -237,9 +243,10 @@ target = NodePath("../Ball")
 collision_mask = 786433
 
 [node name="AnimatedSprite" parent="Player/Portal" index="0"]
-frame = 1
+frame = 2
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
+collision_mask = 524288
 movementCooldown = 0.3
 camera = NodePath("../Player/Camera2D")
 
@@ -253,9 +260,6 @@ speed = 15.0
 
 [node name="CollisionShape2D" parent="Demon" index="0"]
 visible = false
-
-[node name="AnimatedSprite" parent="Demon" index="1"]
-frame = 1
 
 [editable path="Player"]
 

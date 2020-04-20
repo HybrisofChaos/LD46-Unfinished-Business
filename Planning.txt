@@ -1,9 +1,9 @@
 TODO	High Priority
 
 	Main Menu
-	Enemy shooting
-	Damage
-	Health
+	Enemy shooting DONE
+	Damage	DONE
+	Health	DONE
 	Level Design
 	Sound
 	HUD
