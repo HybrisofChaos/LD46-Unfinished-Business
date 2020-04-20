@@ -18,6 +18,9 @@ func _ready():
 	else:
 		print("Camera should be Camera2D node")	
 
+	print(Input.is_action_just_released("lmb"))
+
+
 func _process(delta):
 	update() 
 	updateCooldownTimer(delta)
