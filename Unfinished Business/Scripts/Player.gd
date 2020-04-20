@@ -6,6 +6,9 @@ export (float) var ball_resting_distance = 20
 export (float) var lerp_weight = 3
 export (float) var lerp_scaling_cutoff = 32.0
 
+export (float) var max_health = 100
+var current_health = 100
+
 const platform_collision_layer = 19
 var current_collision_mask
 var ball
@@ -13,6 +16,7 @@ var ball
 func _ready():
 	ball = get_node(ball_path)
 	current_collision_mask = get_collision_mask()
+	current_health = max_health
 
 func _physics_process(delta):
 	move(delta)
@@ -47,3 +51,14 @@ func move(delta):
 										)
 
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func apply_damage(damage):
+	current_health -= damage
+
+	if current_health <= 0:
+		die()
+
+func die():
+	#Add Death Scene or some shit
+	#queue_free()
+	pass

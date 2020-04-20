@@ -248,12 +248,14 @@ visible = false
 
 [node name="Demon" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84.6391, 56.8268 )
-collision_layer = 32768
 collision_mask = 524288
 speed = 15.0
 
 [node name="CollisionShape2D" parent="Demon" index="0"]
 visible = false
+
+[node name="AnimatedSprite" parent="Demon" index="1"]
+frame = 1
 
 [editable path="Player"]
 
