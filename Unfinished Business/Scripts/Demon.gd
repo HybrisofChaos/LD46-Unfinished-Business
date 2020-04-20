@@ -1,4 +1,4 @@
-extends Enemy
+extends "Enemy.gd"
 
 export (float) var bounce_speed = 3
 export (float) var bounce_range = 5
