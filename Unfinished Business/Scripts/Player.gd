@@ -8,6 +8,10 @@ export (float) var lerp_scaling_cutoff = 32.0
 
 export (float) var max_health = 100
 var current_health = 100
+export (float) var health_regen = 8
+
+var health_regen_counter = 0
+var health_regen_cooldown = 3
 
 const platform_collision_layer = 19
 var current_collision_mask
@@ -17,6 +21,13 @@ func _ready():
 	ball = get_node(ball_path)
 	current_collision_mask = get_collision_mask()
 	current_health = max_health
+
+func _process(delta):
+	if health_regen_counter >= health_regen_cooldown:
+		current_health = min(current_health + health_regen * delta, max_health)
+	else:
+		health_regen_counter += delta
+
 
 func _physics_process(delta):
 	move(delta)
@@ -54,7 +65,7 @@ func move(delta):
 
 func apply_damage(damage):
 	current_health -= damage
-
+	health_regen_counter = 0
 	if current_health <= 0:
 		die()
 

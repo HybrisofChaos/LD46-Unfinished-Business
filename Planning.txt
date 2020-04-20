@@ -1,17 +1,17 @@
 TODO	High Priority
 
-	Main Menu
+	Main Menu	DONE
 	Enemy shooting DONE
 	Damage	DONE
 	Health	DONE
 	Level Design
-	Sound
-	HUD
+	Sound	DONE
+	HUD	DONE
 --------------------------------------
 TODO	Low Priority
 
 	More Enemies
-	Ammo
+	Ammo	DONE
 	Abilities
 	Fucking Circle Indicator bug
 	More Objects
