@@ -9,6 +9,7 @@ export (float) var fire_range = 25
 export (float) var fire_rate = 1.5
 
 var projectile = preload("res://Objects/Entities/DemonProjectile.tscn")
+var death_sound = preload("res://SFX/AudioDemonDeath.tscn")
 
 var start_pos
 
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	demonBounce(delta) 
 
 	if target:
-		var direction = (target.global_position - global_position).normalized()
+		var direction = (target.global_position - projectile_spawn.global_position).normalized()
 		var distance = global_position.distance_to(target.global_position)
 
 		if distance <= social_distance:
@@ -63,7 +64,7 @@ func shoot(direction):
 
 	if $AnimatedSprite.frame == 2 and not shot:
 		var clone = projectile.instance()
-		add_child(clone)
+		get_parent().add_child(clone)
 		clone.global_position = projectile_spawn.global_position
 		clone.rotation = direction.angle()
 		shot = true
@@ -73,3 +74,8 @@ func demonBounce(delta):
 
 	if abs($AnimatedSprite.position.y  - (start_pos.y + bounce_range)) < 0.7:
 		bounce_range *= -1
+
+func die():
+	var clone = death_sound.instance()
+	get_parent().add_child(clone)
+	queue_free()

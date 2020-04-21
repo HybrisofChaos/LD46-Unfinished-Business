@@ -23,8 +23,8 @@ radius = 71.771
 
 [node name="Demon" type="KinematicBody2D"]
 position = Vector2( 25.3403, 21.5727 )
-collision_layer = 32768
-collision_mask = 720901
+collision_layer = 32
+collision_mask = 82
 script = ExtResource( 2 )
 bounce_speed = 1.5
 bounce_range = 2.0
@@ -45,7 +45,7 @@ frame = 1
 scale = Vector2( 2, 2 )
 gravity = 0.0
 collision_layer = 0
-collision_mask = 589829
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )

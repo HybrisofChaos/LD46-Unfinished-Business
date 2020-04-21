@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Objects/Chain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/ball.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Sprites/player.png" type="Texture" id=7]
 [ext_resource path="res://Objects/Particles/player_particle_material.material" type="Material" id=8]
 [ext_resource path="res://Scripts/PlayerAnimation.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Portal.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/MainMenuPlayerAnim.gd" type="Script" id=11]
 [ext_resource path="res://font/MainFont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=13]
@@ -79,11 +78,13 @@ target = NodePath("../Ball")
 position = Vector2( 4.79528, 77.6527 )
 scale = Vector2( 1.03256, 1.00773 )
 input_pickable = true
-collision_layer = 4
-collision_mask = 524292
+collision_layer = 0
+collision_mask = 0
 mode = 2
 mass = 104.095
 gravity_scale = 0.0
+sleeping = true
+can_sleep = false
 
 [node name="Sprite" type="Sprite" parent="Ball"]
 scale = Vector2( 0.5, 0.5 )
@@ -228,25 +229,21 @@ shape = SubResource( 6 )
 visible = false
 current = true
 limit_left = 0
-limit_top = -100
-limit_right = 340
-limit_bottom = 85
+limit_top = -88
+limit_right = 1024
+limit_bottom = 88
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 4.0
 
 [node name="Portal" type="Node2D" parent="Player"]
 position = Vector2( 5.29021, -6.04595 )
-script = ExtResource( 10 )
-bounce_speed = 1.0
-bounce_range = 1.0
-attack_speed = 2.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Portal"]
 position = Vector2( 0.137974, -0.0558891 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="Player/Portal/AnimatedSprite"]

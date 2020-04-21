@@ -52,6 +52,7 @@ func shoot():
 	
 	var mouse_position = get_local_mouse_position()
 	clone.rotation = mouse_position.angle()
+	
 	shoot_counter = 0
 	current_ammo = current_ammo - 1
 

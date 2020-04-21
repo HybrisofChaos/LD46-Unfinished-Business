@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/demon_death.wav-65a641b5a4f5622ac35c4164510580a9.sample"
+
+[deps]
+
+source_file="res://SFX/demon_death.wav"
+dest_files=[ "res://.import/demon_death.wav-65a641b5a4f5622ac35c4164510580a9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

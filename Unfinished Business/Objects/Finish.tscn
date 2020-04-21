@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.9803
+height = 0.501328
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 16.0
+flag_disable_z = true
+spread = 126.03
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 45.0
+orbit_velocity_random = 0.0
+
+[node name="Finish" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 80
+process_material = SubResource( 2 )

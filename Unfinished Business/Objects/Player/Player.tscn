@@ -52,8 +52,8 @@ color_ramp = SubResource( 5 )
 [node name="Player" type="KinematicBody2D"]
 process_priority = 1
 position = Vector2( 51.3674, 36.557 )
-collision_layer = 65536
-collision_mask = 819217
+collision_layer = 2
+collision_mask = 128
 script = ExtResource( 2 )
 ball_path = NodePath("../Ball")
 ball_resting_distance = 16.0
@@ -87,9 +87,9 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 limit_left = 0
-limit_top = -100
-limit_right = 340
-limit_bottom = 85
+limit_top = -88
+limit_right = 1024
+limit_bottom = 88
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 4.0
@@ -99,13 +99,13 @@ position = Vector2( 5.29021, -6.04595 )
 script = ExtResource( 8 )
 bounce_speed = 1.0
 bounce_range = 1.0
+base_ammo_cooldown = 1.0
 attack_speed = 2.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Portal"]
 position = Vector2( 0.137974, -0.0558891 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-frame = 3
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="Portal/AnimatedSprite"]

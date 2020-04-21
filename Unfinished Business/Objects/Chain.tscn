@@ -10,8 +10,8 @@ radius = 0.5
 script = ExtResource( 2 )
 
 [node name="Anchor" type="StaticBody2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor"]
 shape = SubResource( 1 )
