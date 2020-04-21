@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=22 format=2]
-=======
-[gd_scene load_steps=18 format=2]
->>>>>>> 28849501d2449fe2d83ff9d3c19cad4065b60652
 
 [ext_resource path="res://Spritesheets/Tilesheet_default.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,13 +7,10 @@
 [ext_resource path="res://Objects/Chain.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/HUD/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Crate.tscn" type="PackedScene" id=7]
-<<<<<<< HEAD
 [ext_resource path="res://SFX/BackgroundMusic.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Finish.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Finish.tscn" type="PackedScene" id=10]
 [ext_resource path="res://font/SmallFont.tres" type="DynamicFont" id=11]
-=======
->>>>>>> 28849501d2449fe2d83ff9d3c19cad4065b60652
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -289,6 +282,9 @@ target = NodePath("../Ball")
 [node name="Player" parent="." instance=ExtResource( 2 )]
 collision_mask = 786432
 
+[node name="AnimatedSprite" parent="Player/Portal" index="0"]
+frame = 2
+
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 collision_mask = 0
 movementCooldown = 0.65
@@ -329,7 +325,7 @@ position = Vector2( 267.85, 68.4021 )
 position = Vector2( 428.295, -6.21208 )
 
 [node name="Demon4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 361.971, -34.0096 )
+position = Vector2( 545.337, 60.5993 )
 
 [node name="Demon5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 430.733, -70.5851 )

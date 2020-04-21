@@ -79,4 +79,5 @@ player_shoot={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.172549, 0, 0.160784, 1 )
 environment/default_environment="res://default_env.tres"
